@@ -25,3 +25,21 @@ config :bootloader,
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
+
+config :logger, level: :debug
+
+key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
+
+config :nerves_network, :default,
+  wlan0: [
+    ssid: System.get_env("NERVES_NETWORK_SSID"),
+    psk: System.get_env("NERVES_NETWORK_PSK"),
+    key_mgmt: String.to_atom(key_mgmt)
+  ],
+  eth0: [
+    ipv4_address_method: :dhcp
+  ]
+
+#config :firmware, interface: :eth0
+config :firmware, interface: :wlan0
+#config :firmware, interface: :usb0
