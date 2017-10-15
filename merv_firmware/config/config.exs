@@ -17,8 +17,13 @@ use Mix.Config
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
 config :bootloader,
-  init: [:nerves_runtime],
+  init: [:nerves_runtime, :nerves_init_gadget],
   app: :merv_firmware
+
+config :nerves_firmware_ssh,
+  authorized_keys: [
+    File.read!(Path.join(System.user_home!, ".ssh/id_rsa.pub"))
+  ]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
@@ -29,6 +34,13 @@ config :bootloader,
 config :logger, level: :debug
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
+
+config :nerves_init_gadget,
+  ifname: "wlan0",
+  address_method: :dhcp,
+  mdns_domain: "merv.local",
+  node_name: "merv",
+  node_host: :mdns_domain
 
 config :nerves_network, :default,
   wlan0: [
@@ -43,3 +55,4 @@ config :nerves_network, :default,
 #config :firmware, interface: :eth0
 config :firmware, interface: :wlan0
 #config :firmware, interface: :usb0
+

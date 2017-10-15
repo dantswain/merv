@@ -60,7 +60,9 @@ defmodule MervFirmware.Mixfile do
   def deps(target) do
     [
       {:bootloader, "~> 0.1"},
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_network, "~> 0.3"},
+      {:nerves_init_gadget, "~> 0.2"}
     ] ++ system(target)
   end
 
