@@ -56,3 +56,4 @@ config :nerves_network, :default,
 config :firmware, interface: :wlan0
 #config :firmware, interface: :usb0
 
+import_config "../../merv_ui/config/config.exs"

@@ -14,7 +14,7 @@ use Mix.Releases.Config,
 # and environment configuration is called a profile
 
 environment :dev do
-  set cookie: :";s=Hl)SxJxSt(.KDB;vvNLqjO^Dx%OwM24AE$InEs/Dv_!pLCn44d2cJ_8k$m&E8"
+  set cookie: :"acookie"
 end
 
 environment :prod do

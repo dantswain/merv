@@ -62,7 +62,8 @@ defmodule MervFirmware.Mixfile do
       {:bootloader, "~> 0.1"},
       {:nerves_runtime, "~> 0.4"},
       {:nerves_network, "~> 0.3"},
-      {:nerves_init_gadget, "~> 0.2"}
+      {:nerves_init_gadget, "~> 0.2"},
+      {:merv_ui, path: "../merv_ui"}
     ] ++ system(target)
   end
 
