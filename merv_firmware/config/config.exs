@@ -52,6 +52,10 @@ config :nerves_network, :default,
     ipv4_address_method: :dhcp
   ]
 
+config :merv_firmware,
+  input_pin: 20,
+  output_pin: 26
+
 #config :firmware, interface: :eth0
 config :firmware, interface: :wlan0
 #config :firmware, interface: :usb0

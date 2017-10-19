@@ -63,6 +63,7 @@ defmodule MervFirmware.Mixfile do
       {:nerves_runtime, "~> 0.4"},
       {:nerves_network, "~> 0.3"},
       {:nerves_init_gadget, "~> 0.2"},
+      {:elixir_ale, "1.0.0"},
       {:merv_ui, path: "../merv_ui"}
     ] ++ system(target)
   end
