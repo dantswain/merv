@@ -81,7 +81,9 @@ defmodule MervFirmware.Mixfile do
   def aliases("host"), do: []
   def aliases(_target) do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
-     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
+     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"],
+     "compile": ["compile", "merv.copy_static_assets"]
+    ]
   end
 
 end
