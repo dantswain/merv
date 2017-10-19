@@ -1,5 +1,10 @@
 use Mix.Config
 
+port = case System.get_env("MIX_TARGET") do
+  nil -> 4000
+  _ -> 80
+end
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -7,7 +12,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :merv_ui, MervUiWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 80],
   debug_errors: true,
   check_origin: false
 
